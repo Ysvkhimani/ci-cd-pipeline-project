@@ -1,13 +1,13 @@
-// const { test, expect } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 
-// test('Registration Module Test', async ({ page }) => {
+test('Registration Module Test', async ({ page }) => {
 
-//     console.log("Registration module started");
+    console.log("Registration module started");
 
-//     await page.goto('https://example.com');
+    await page.goto('https://example.com');
 
-//     await expect(page).toHaveTitle(/Example/);
+    await expect(page).toHaveTitle(/Example/);
 
-//     console.log("Registration module completed");
+    console.log("Registration module completed");
 
-// });
+});
