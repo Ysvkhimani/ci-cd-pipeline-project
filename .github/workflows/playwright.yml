@@ -27,14 +27,17 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Automation Tests
+    - name: Run Playwright Tests
       run: npx playwright test
 
-    - name: Upload Playwright Report
+    - name: Send Email Notification
+      run: node sendEmail.js
+      env:
+        EMAIL_USER: ${{ secrets.EMAIL_USER }}
+        EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+
+    - name: Upload HTML Report
       uses: actions/upload-artifact@v4
       with:
         name: playwright-report
         path: playwright-report
-
-    - name: Send Email Notification
-      run: node sendEmail.js
