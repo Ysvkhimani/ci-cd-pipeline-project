@@ -1,59 +1,64 @@
-import { defineConfig, devices } from '@playwright/test';
+// @ts-check
+
+const { defineConfig, devices } = require('@playwright/test');
 
 const currentDate = new Date();
 
-const formattedDate =
-  currentDate.toLocaleDateString().replace(/\//g, '-');
+const timestamp =
+    `${currentDate.getMonth() + 1}-${currentDate.getDate()}-${currentDate.getFullYear()}_${currentDate.getHours()}-${currentDate.getMinutes()}-${currentDate.getSeconds()}`;
 
-const formattedTime =
-  currentDate.toTimeString().split(' ')[0].replace(/:/g, '-');
+module.exports = defineConfig({
 
-const reportFolderName =
-  `reports/Kaleyra_Login_Report_${formattedDate}_${formattedTime}`;
+    testDir: './tests',
 
-export default defineConfig({
+    fullyParallel: false,
 
-  testDir: './tests',
+    workers: 1,
 
-  fullyParallel: false,
+    retries: 0,
 
-  workers: 1,
+    timeout: 120000,
 
-  retries: 0,
+    reporter: [
+        [
+            'html',
+            {
+                outputFolder:
+                    `reports/Kaleyra_Login_Report_${timestamp}`,
 
-  reporter: [
+                open: 'never'
+            }
+        ]
+    ],
 
-    ['list'],
+    use: {
 
-    ['json', {
-      outputFile: 'test-results.json'
-    }],
+        browserName: 'chromium',
 
-    ['html', {
-      outputFolder: reportFolderName,
-      open: 'never'
-    }]
-  ],
+        headless: true,
 
-  use: {
+        screenshot: 'only-on-failure',
 
-    headless: false,
+        video: 'retain-on-failure',
 
-    screenshot: 'only-on-failure',
+        trace: 'off',
 
-    video: 'off',
+        viewport: {
+            width: 1400,
+            height: 900
+        },
 
-    trace: 'off'
-  },
+        actionTimeout: 30000,
 
-  projects: [
+        navigationTimeout: 120000
+    },
 
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome']
-      },
-    }
-
-  ],
+    projects: [
+        {
+            name: 'chromium',
+            use: {
+                ...devices['Desktop Chrome']
+            }
+        }
+    ]
 });
