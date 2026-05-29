@@ -1,0 +1,521 @@
+{
+  "config": {
+    "configFile": "/home/yashvi/Documents/ci-cd-pipeline-project/playwright.config.js",
+    "rootDir": "/home/yashvi/Documents/ci-cd-pipeline-project/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/yashvi/Documents/ci-cd-pipeline-project/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/Kaleyra_Login_Report_5-28-2026_12-32-19",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login/login.spec.js",
+      "file": "login/login.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Kaleyra Login Module",
+          "file": "login/login.spec.js",
+          "line": 141,
+          "column": 15,
+          "specs": [
+            {
+              "title": "Invalid Password Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3449,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Browser launched successfully\n"
+                        },
+                        {
+                          "text": "Running Invalid Password Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:20.273Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-35e1a514546a44972901",
+              "file": "login/login.spec.js",
+              "line": 178,
+              "column": 5
+            },
+            {
+              "title": "Invalid Email Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3303,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Invalid Email Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:35.591Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-e75bf30972d9d3402523",
+              "file": "login/login.spec.js",
+              "line": 199,
+              "column": 5
+            },
+            {
+              "title": "Blank Email Validation Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3196,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Blank Email Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:38.957Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-8bd090641426885c8bcb",
+              "file": "login/login.spec.js",
+              "line": 220,
+              "column": 5
+            },
+            {
+              "title": "Blank Password Validation Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3202,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Blank Password Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:42.181Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-f91f9402c174d37573d4",
+              "file": "login/login.spec.js",
+              "line": 242,
+              "column": 5
+            },
+            {
+              "title": "Invalid Email Format Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3336,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Invalid Email Format Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:45.427Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-4672c715425ef0f40a25",
+              "file": "login/login.spec.js",
+              "line": 264,
+              "column": 5
+            },
+            {
+              "title": "Special Characters Login Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3280,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Special Characters Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:48.794Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-9ef8db8e90abf6b89d39",
+              "file": "login/login.spec.js",
+              "line": 285,
+              "column": 5
+            },
+            {
+              "title": "SQL Injection Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3302,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running SQL Injection Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:52.107Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-0b11184c1f30e911c05b",
+              "file": "login/login.spec.js",
+              "line": 306,
+              "column": 5
+            },
+            {
+              "title": "Remember Me Checkbox Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 63,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Remember Me Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:55.480Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-62999014d937c41bf456",
+              "file": "login/login.spec.js",
+              "line": 327,
+              "column": 5
+            },
+            {
+              "title": "Forgot Password Link Test",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6138,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Running Forgot Password Test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:02:55.571Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-138444248508e46a3923",
+              "file": "login/login.spec.js",
+              "line": 344,
+              "column": 5
+            },
+            {
+              "title": "Valid Login Test",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10555,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: not \u001b[32m/login/\u001b[39m\nReceived string: \u001b[31m\"https://adminqa.ecosmob.net:3006/\u001b[7mlogin\u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://adminqa.ecosmob.net:3006/login\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: not \u001b[32m/login/\u001b[39m\nReceived string: \u001b[31m\"https://adminqa.ecosmob.net:3006/\u001b[7mlogin\u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://adminqa.ecosmob.net:3006/login\"\u001b[22m\n\n    at /home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js:382:18",
+                        "location": {
+                          "file": "/home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js",
+                          "column": 18,
+                          "line": 382
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 380 |\u001b[39m\n \u001b[90m 381 |\u001b[39m         \u001b[36mawait\u001b[39m expect(page)\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 382 |\u001b[39m             \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/login/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 383 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 384 |\u001b[39m\n \u001b[90m 385 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js",
+                            "column": 18,
+                            "line": 382
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: not \u001b[32m/login/\u001b[39m\nReceived string: \u001b[31m\"https://adminqa.ecosmob.net:3006/\u001b[7mlogin\u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://adminqa.ecosmob.net:3006/login\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 380 |\u001b[39m\n \u001b[90m 381 |\u001b[39m         \u001b[36mawait\u001b[39m expect(page)\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 382 |\u001b[39m             \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/login/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 383 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 384 |\u001b[39m\n \u001b[90m 385 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js:382:18\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Running Valid Login Test\n"
+                        },
+                        {
+                          "text": "Browser closed\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-28T07:03:01.746Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results/login-login-Kaleyra-Login-Module-Valid-Login-Test-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results/login-login-Kaleyra-Login-Module-Valid-Login-Test-chromium/error-context.md"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results/login-login-Kaleyra-Login-Module-Valid-Login-Test-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js",
+                        "column": 18,
+                        "line": 382
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "9495a7364db6a0daf776-d89292843ff9b17a7146",
+              "file": "login/login.spec.js",
+              "line": 367,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-05-28T07:02:19.089Z",
+    "duration": 53513.939000000006,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
