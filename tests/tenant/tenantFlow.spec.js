@@ -267,76 +267,208 @@ test.describe.serial('Kaleyra Tenant Complete Flow', () => {
     // created extension is available in the search results and to 
     // avoid any stale element issues that might arise due to page reloads after creation
     
-   test('Search Created Extension', async () => {
+//    test('Search Created Extension', async () => {
+
+//     console.log(
+//         `Searching Extension ${extensionNumber}`
+//     );
+
+//     // Open Search Section using XPath from Codegen
+
+//     await tenantPage
+//         .locator("//div[@class='collapsible-header']")
+//         .click();
+
+//     await tenantPage.waitForTimeout(2000);
+
+//     // Clear Extension Name field
+
+//     await tenantPage
+//         .getByRole('textbox', {
+//             name: 'Extension Name'
+//         })
+//         .click();
+
+//     await tenantPage
+//         .getByRole('textbox', {
+//             name: 'Extension Name'
+//         })
+//         .fill('');
+
+//     // Fill Extension Number
+
+//     await tenantPage
+//         .getByRole('textbox', {
+//             name: 'Extension Number'
+//         })
+//         .click();
+
+//     await tenantPage
+//         .getByRole('textbox', {
+//             name: 'Extension Number'
+//         })
+//         .fill(extensionNumber);
+
+//     console.log(
+//         `Entered Extension Number: ${extensionNumber}`
+//     );
+
+//     await tenantPage.waitForTimeout(1000);
+
+//     // Click Search Button
+
+//     await tenantPage
+//         .getByRole('button', {
+//             name: 'Search'
+//         })
+//         .click();
+
+//     await tenantPage.waitForLoadState('networkidle');
+
+//     await tenantPage.waitForTimeout(3000);
+
+//     // Verify Extension Found
+
+//    await expect(
+//     tenantPage.getByRole('cell', {
+//         name: extensionNumber,
+//         exact: true
+//     })
+// ).toBeVisible({
+//     timeout: 15000
+// });
+
+//     console.log(
+//         `Extension ${extensionNumber} found successfully`
+//     );
+// });
+test('Search Created Extension', async () => {
 
     console.log(
         `Searching Extension ${extensionNumber}`
     );
 
-    // Open Search Section using XPath from Codegen
+    // Ensure redirect to Extension Listing Page is completed
 
-    await tenantPage
-        .locator("//div[@class='collapsible-header']")
-        .click();
+    await tenantPage.waitForURL(
+        /extension.*index/,
+        {
+            timeout: 30000
+        }
+    );
 
-    await tenantPage.waitForTimeout(2000);
+    console.log(
+        'Current URL:',
+        await tenantPage.url()
+    );
 
-    // Clear Extension Name field
+    // Wait for Search Accordion
 
-    await tenantPage
-        .getByRole('textbox', {
-            name: 'Extension Name'
-        })
-        .click();
+    const searchAccordion =
+        tenantPage.locator(
+            "//div[@class='collapsible-header']"
+        );
 
-    await tenantPage
-        .getByRole('textbox', {
-            name: 'Extension Name'
-        })
-        .fill('');
+    await expect(
+        searchAccordion
+    ).toBeVisible({
+        timeout: 30000
+    });
 
-    // Fill Extension Number
+    await searchAccordion.scrollIntoViewIfNeeded();
 
-    await tenantPage
-        .getByRole('textbox', {
-            name: 'Extension Number'
-        })
-        .click();
+    await searchAccordion.click();
 
-    await tenantPage
-        .getByRole('textbox', {
-            name: 'Extension Number'
-        })
-        .fill(extensionNumber);
+    console.log(
+        'Search Accordion Opened'
+    );
+
+    // Wait for Search Fields
+
+    const extensionNumberField =
+        tenantPage.getByRole(
+            'textbox',
+            {
+                name: 'Extension Number'
+            }
+        );
+
+    await expect(
+        extensionNumberField
+    ).toBeVisible({
+        timeout: 30000
+    });
+
+    // Clear Extension Name
+
+    const extensionNameField =
+        tenantPage.getByRole(
+            'textbox',
+            {
+                name: 'Extension Name'
+            }
+        );
+
+    if (
+        await extensionNameField
+            .isVisible()
+            .catch(() => false)
+    ) {
+
+        await extensionNameField.fill('');
+    }
+
+    // Enter Generated Extension Number
+
+    await extensionNumberField.clear();
+
+    await extensionNumberField.fill(
+        extensionNumber
+    );
 
     console.log(
         `Entered Extension Number: ${extensionNumber}`
     );
 
-    await tenantPage.waitForTimeout(1000);
+    // Click Search
 
-    // Click Search Button
+    const searchButton =
+        tenantPage.getByRole(
+            'button',
+            {
+                name: /^Search$/
+            }
+        );
 
-    await tenantPage
-        .getByRole('button', {
-            name: 'Search'
-        })
-        .click();
+    await expect(
+        searchButton
+    ).toBeVisible({
+        timeout: 30000
+    });
 
-    await tenantPage.waitForLoadState('networkidle');
+    await searchButton.click();
 
-    await tenantPage.waitForTimeout(3000);
+    await tenantPage.waitForLoadState(
+        'networkidle'
+    );
 
-    // Verify Extension Found
+    await tenantPage.waitForTimeout(
+        3000
+    );
 
-   await expect(
-    tenantPage.getByRole('cell', {
-        name: extensionNumber,
-        exact: true
-    })
-).toBeVisible({
-    timeout: 15000
-});
+    // Verify Extension Number Found
+
+    await expect(
+        tenantPage.getByRole(
+            'cell',
+            {
+                name: extensionNumber,
+                exact: true
+            }
+        )
+    ).toBeVisible({
+        timeout: 30000
+    });
 
     console.log(
         `Extension ${extensionNumber} found successfully`
