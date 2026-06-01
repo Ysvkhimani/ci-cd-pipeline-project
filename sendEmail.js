@@ -157,10 +157,20 @@ async function sendMail() {
 
     const summary =
         getExecutionSummary();
-
-    const executionTime =
-        new Date()
-            .toLocaleString();
+const executionTime =
+    new Date().toLocaleString(
+        'en-IN',
+        {
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        }
+    );
 
     const overallStatus =
         summary.failed > 0
