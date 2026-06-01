@@ -267,28 +267,33 @@ test.describe.serial('Kaleyra Tenant Complete Flow', () => {
     // created extension is available in the search results and to 
     // avoid any stale element issues that might arise due to page reloads after creation
     
-test('Search Created Extension', async () => {
+   test('Search Created Extension', async () => {
 
     console.log(
         `Searching Extension ${extensionNumber}`
     );
 
-    // Open Search Section
+    // Open Search Section using XPath from Codegen
 
     await tenantPage
-        .getByText('Search')
-        .nth(1)
+        .locator("//div[@class='collapsible-header']")
         .click();
 
-    // Wait for Extension Number field to appear
+    await tenantPage.waitForTimeout(2000);
 
-    await expect(
-        tenantPage.getByRole('textbox', {
-            name: 'Extension Number'
+    // Clear Extension Name field
+
+    await tenantPage
+        .getByRole('textbox', {
+            name: 'Extension Name'
         })
-    ).toBeVisible({
-        timeout: 15000
-    });
+        .click();
+
+    await tenantPage
+        .getByRole('textbox', {
+            name: 'Extension Name'
+        })
+        .fill('');
 
     // Fill Extension Number
 
@@ -296,7 +301,7 @@ test('Search Created Extension', async () => {
         .getByRole('textbox', {
             name: 'Extension Number'
         })
-        .clear();
+        .click();
 
     await tenantPage
         .getByRole('textbox', {
@@ -308,8 +313,6 @@ test('Search Created Extension', async () => {
         `Entered Extension Number: ${extensionNumber}`
     );
 
-    // Wait before search
-
     await tenantPage.waitForTimeout(1000);
 
     // Click Search Button
@@ -318,10 +321,7 @@ test('Search Created Extension', async () => {
         .getByRole('button', {
             name: 'Search'
         })
-        .last()
         .click();
-
-    // Wait for results
 
     await tenantPage.waitForLoadState('networkidle');
 
@@ -329,11 +329,14 @@ test('Search Created Extension', async () => {
 
     // Verify Extension Found
 
-    await expect(
-        tenantPage.getByText(extensionNumber)
-    ).toBeVisible({
-        timeout: 15000
-    });
+   await expect(
+    tenantPage.getByRole('cell', {
+        name: extensionNumber,
+        exact: true
+    })
+).toBeVisible({
+    timeout: 15000
+});
 
     console.log(
         `Extension ${extensionNumber} found successfully`
