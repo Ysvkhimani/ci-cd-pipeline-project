@@ -29,26 +29,22 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 30000
+        "timeout": 120000
       }
     ],
     "quiet": false,
     "reporter": [
       [
-        "list",
-        null
+        "html",
+        {
+          "outputFolder": "reports/tenantFlow_6-1-2026_13-4-53",
+          "open": "never"
+        }
       ],
       [
         "json",
         {
           "outputFile": "test-results.json"
-        }
-      ],
-      [
-        "html",
-        {
-          "outputFolder": "reports/Kaleyra_Login_Report_5-28-2026_12-32-19",
-          "open": "never"
         }
       ]
     ],
@@ -66,25 +62,25 @@
   },
   "suites": [
     {
-      "title": "login/login.spec.js",
-      "file": "login/login.spec.js",
+      "title": "tenant/tenantFlow.spec.js",
+      "file": "tenant/tenantFlow.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Kaleyra Login Module",
-          "file": "login/login.spec.js",
-          "line": 141,
+          "title": "Kaleyra Tenant Complete Flow",
+          "file": "tenant/tenantFlow.spec.js",
+          "line": 17,
           "column": 15,
           "specs": [
             {
-              "title": "Invalid Password Test",
+              "title": "Admin Login",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -94,19 +90,19 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3449,
+                      "duration": 6133,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Browser launched successfully\n"
+                          "text": "Starting Tenant Flow\n"
                         },
                         {
-                          "text": "Running Invalid Password Test\n"
+                          "text": "Admin Login Successful\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:20.273Z",
+                      "startTime": "2026-06-01T07:34:54.371Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -114,18 +110,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-35e1a514546a44972901",
-              "file": "login/login.spec.js",
-              "line": 178,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-0ef796edf22128545716",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 35,
+              "column": 9
             },
             {
-              "title": "Invalid Email Test",
+              "title": "Open Tenant Module",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -135,16 +131,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3303,
+                      "duration": 4201,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Invalid Email Test\n"
+                          "text": "Tenant Module Opened\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:35.591Z",
+                      "startTime": "2026-06-01T07:35:01.414Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -152,18 +148,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-e75bf30972d9d3402523",
-              "file": "login/login.spec.js",
-              "line": 199,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-4ec7225d13ff534a71f5",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 64,
+              "column": 9
             },
             {
-              "title": "Blank Email Validation Test",
+              "title": "Open Tenant Login",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -173,16 +169,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3196,
+                      "duration": 4274,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Blank Email Test\n"
+                          "text": "Tenant Login Opened\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:38.957Z",
+                      "startTime": "2026-06-01T07:35:05.652Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -190,18 +186,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-8bd090641426885c8bcb",
-              "file": "login/login.spec.js",
-              "line": 220,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-ae913d919b10ced6f5a9",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 77,
+              "column": 9
             },
             {
-              "title": "Blank Password Validation Test",
+              "title": "Open Telephony Module",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -211,16 +207,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3202,
+                      "duration": 685,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Blank Password Test\n"
+                          "text": "Telephony Module Opened\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:42.181Z",
+                      "startTime": "2026-06-01T07:35:09.983Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -228,18 +224,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-f91f9402c174d37573d4",
-              "file": "login/login.spec.js",
-              "line": 242,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-9d32356010f8f1fea195",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 96,
+              "column": 9
             },
             {
-              "title": "Invalid Email Format Test",
+              "title": "Open Extensions Module",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -249,16 +245,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3336,
+                      "duration": 1044,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Invalid Email Format Test\n"
+                          "text": "Extensions Page Opened\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:45.427Z",
+                      "startTime": "2026-06-01T07:35:10.732Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -266,18 +262,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-4672c715425ef0f40a25",
-              "file": "login/login.spec.js",
-              "line": 264,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-e672853746ffbab608a0",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 111,
+              "column": 9
             },
             {
-              "title": "Special Characters Login Test",
+              "title": "Open Add Extension Page",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -287,16 +283,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3280,
+                      "duration": 992,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Special Characters Test\n"
+                          "text": "Add Extension Page Opened\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:48.794Z",
+                      "startTime": "2026-06-01T07:35:11.814Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -304,18 +300,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-9ef8db8e90abf6b89d39",
-              "file": "login/login.spec.js",
-              "line": 285,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-838dec9e60082090a997",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 122,
+              "column": 9
             },
             {
-              "title": "SQL Injection Test",
+              "title": "Fill Basic Extension Details",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -325,16 +321,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 3302,
+                      "duration": 494,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running SQL Injection Test\n"
+                          "text": "Basic Details Filled\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:52.107Z",
+                      "startTime": "2026-06-01T07:35:12.835Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -342,18 +338,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-0b11184c1f30e911c05b",
-              "file": "login/login.spec.js",
-              "line": 306,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-35b0b7b57c6f8cd01ff4",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 133,
+              "column": 9
             },
             {
-              "title": "Remember Me Checkbox Test",
+              "title": "Select Group Language Timezone",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -363,16 +359,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 63,
+                      "duration": 497,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Remember Me Test\n"
+                          "text": "Group Language Timezone Selected\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:55.480Z",
+                      "startTime": "2026-06-01T07:35:13.382Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -380,18 +376,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-62999014d937c41bf456",
-              "file": "login/login.spec.js",
-              "line": 327,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-e8f718a5add6f248bba6",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 156,
+              "column": 9
             },
             {
-              "title": "Forgot Password Link Test",
+              "title": "Fill Call Settings",
               "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -401,16 +397,16 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6138,
+                      "duration": 591,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "Running Forgot Password Test\n"
+                          "text": "Call Settings Filled\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:02:55.571Z",
+                      "startTime": "2026-06-01T07:35:13.917Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -418,18 +414,18 @@
                   "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-138444248508e46a3923",
-              "file": "login/login.spec.js",
-              "line": 344,
-              "column": 5
+              "id": "3393012a67d98d20b6dc-3550ecc3ed0ea3e5a6e2",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 202,
+              "column": 9
             },
             {
-              "title": "Valid Login Test",
-              "ok": false,
+              "title": "Create Extension",
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -438,70 +434,109 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 10555,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: not \u001b[32m/login/\u001b[39m\nReceived string: \u001b[31m\"https://adminqa.ecosmob.net:3006/\u001b[7mlogin\u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://adminqa.ecosmob.net:3006/login\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: not \u001b[32m/login/\u001b[39m\nReceived string: \u001b[31m\"https://adminqa.ecosmob.net:3006/\u001b[7mlogin\u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://adminqa.ecosmob.net:3006/login\"\u001b[22m\n\n    at /home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js:382:18",
-                        "location": {
-                          "file": "/home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js",
-                          "column": 18,
-                          "line": 382
+                      "status": "passed",
+                      "duration": 66,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Extension Created\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-01T07:35:14.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3393012a67d98d20b6dc-33f61e62196c99c34576",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 237,
+              "column": 9
+            },
+            {
+              "title": "Verify Extension Creation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6625,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Extension 694344 Created Successfully\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-01T07:35:14.637Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3393012a67d98d20b6dc-e24a747dcd6214d05730",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 252,
+              "column": 9
+            },
+            {
+              "title": "Search Created Extension",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5423,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Searching Extension 694344\n"
                         },
-                        "snippet": "\u001b[0m \u001b[90m 380 |\u001b[39m\n \u001b[90m 381 |\u001b[39m         \u001b[36mawait\u001b[39m expect(page)\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 382 |\u001b[39m             \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/login/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 383 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 384 |\u001b[39m\n \u001b[90m 385 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
                         {
-                          "location": {
-                            "file": "/home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js",
-                            "column": 18,
-                            "line": 382
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: not \u001b[32m/login/\u001b[39m\nReceived string: \u001b[31m\"https://adminqa.ecosmob.net:3006/\u001b[7mlogin\u001b[27m\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://adminqa.ecosmob.net:3006/login\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 380 |\u001b[39m\n \u001b[90m 381 |\u001b[39m         \u001b[36mawait\u001b[39m expect(page)\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 382 |\u001b[39m             \u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/login/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 383 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 384 |\u001b[39m\n \u001b[90m 385 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at /home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js:382:18\u001b[22m"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Running Valid Login Test\n"
+                          "text": "Extension 694344 found successfully\n"
                         },
                         {
-                          "text": "Browser closed\n"
+                          "text": "Tenant Flow Completed\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-28T07:03:01.746Z",
+                      "startTime": "2026-06-01T07:35:21.292Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results/login-login-Kaleyra-Login-Module-Valid-Login-Test-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results/login-login-Kaleyra-Login-Module-Valid-Login-Test-chromium/error-context.md"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/home/yashvi/Documents/ci-cd-pipeline-project/test-results/login-login-Kaleyra-Login-Module-Valid-Login-Test-chromium/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/home/yashvi/Documents/ci-cd-pipeline-project/tests/login/login.spec.js",
-                        "column": 18,
-                        "line": 382
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "9495a7364db6a0daf776-d89292843ff9b17a7146",
-              "file": "login/login.spec.js",
-              "line": 367,
+              "id": "3393012a67d98d20b6dc-4aa156e98d2f34ec59c5",
+              "file": "tenant/tenantFlow.spec.js",
+              "line": 270,
               "column": 5
             }
           ]
@@ -511,11 +546,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-28T07:02:19.089Z",
-    "duration": 53513.939000000006,
-    "expected": 9,
+    "startTime": "2026-06-01T07:34:53.149Z",
+    "duration": 33972.77,
+    "expected": 12,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

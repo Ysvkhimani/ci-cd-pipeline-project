@@ -10,11 +10,19 @@ function getLatestReportFolder() {
     const reportsPath = './reports';
 
     const folders = fs.readdirSync(reportsPath)
+        .filter(file =>
+            fs.statSync(path.join(reportsPath, file)).isDirectory()
+        )
         .map(file => ({
             name: file,
             time: fs.statSync(path.join(reportsPath, file)).mtime.getTime()
         }))
         .sort((a, b) => b.time - a.time);
+
+    if (!folders.length) {
+
+        throw new Error('No report folder found inside reports/');
+    }
 
     return path.join(reportsPath, folders[0].name);
 }
@@ -23,13 +31,16 @@ async function zipReport(reportFolder) {
 
     return new Promise((resolve, reject) => {
 
-        const zipFileName = `${path.basename(reportFolder)}.zip`;
+        const zipFileName =
+            `${path.basename(reportFolder)}.zip`;
 
-        const output = fs.createWriteStream(zipFileName);
+        const output =
+            fs.createWriteStream(zipFileName);
 
-        const archive = archiver('zip', {
-            zlib: { level: 9 }
-        });
+        const archive =
+            archiver('zip', {
+                zlib: { level: 9 }
+            });
 
         output.on('close', () => {
 
@@ -50,9 +61,13 @@ async function zipReport(reportFolder) {
 
 function getExecutionSummary() {
 
-    const data = JSON.parse(
-        fs.readFileSync('test-results.json', 'utf8')
-    );
+    const jsonData =
+        JSON.parse(
+            fs.readFileSync(
+                'test-results.json',
+                'utf8'
+            )
+        );
 
     let total = 0;
     let passed = 0;
@@ -73,23 +88,32 @@ function getExecutionSummary() {
 
                         total++;
 
-                        const result = test.results[0];
+                        const result =
+                            test.results[0];
 
-                        const status = result?.status;
+                        const status =
+                            result?.status;
 
                         if (status === 'passed') {
 
                             passed++;
 
-                            passedTests.push(spec.title);
+                            passedTests.push(
+                                spec.title
+                            );
 
                         } else {
 
                             failed++;
 
                             failedTests.push({
+
                                 name: spec.title,
-                                error: result?.error?.message || "Unknown Error"
+
+                                error:
+                                    result?.error?.message
+                                        ?.split('\n')[0] ||
+                                    'Unknown Error'
                             });
                         }
                     }
@@ -97,12 +121,15 @@ function getExecutionSummary() {
             }
 
             if (suite.suites) {
-                processSuites(suite.suites);
+
+                processSuites(
+                    suite.suites
+                );
             }
         }
     }
 
-    processSuites(data.suites);
+    processSuites(jsonData.suites);
 
     return {
         total,
@@ -118,48 +145,106 @@ async function sendMail() {
     const latestReportFolder =
         getLatestReportFolder();
 
+    const reportName =
+        path.basename(
+            latestReportFolder
+        );
+
     const zipFile =
-        await zipReport(latestReportFolder);
+        await zipReport(
+            latestReportFolder
+        );
 
     const summary =
         getExecutionSummary();
 
-    let transporter = nodemailer.createTransport({
+    const executionTime =
+        new Date()
+            .toLocaleString();
 
-        service: 'gmail',
+    const overallStatus =
+        summary.failed > 0
+            ? 'FAILED'
+            : 'PASSED';
 
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        }
-    });
+    const passedList =
+        summary.passedTests.length
+            ? summary.passedTests
+                .map(test =>
+                    `<li style="color:green;">${test}</li>`
+                )
+                .join('')
+            : '<li>No Passed Tests</li>';
 
-    const passedList = summary.passedTests
-        .map(test => `<li style="color:green;">${test}</li>`)
-        .join('');
+    const failedList =
+        summary.failedTests.length
+            ? summary.failedTests
+                .map(test => `
+                <li style="color:red;">
+                    <b>${test.name}</b>
+                    <br>
+                    ${test.error}
+                </li>
+            `)
+                .join('')
+            : '<li>No Failed Tests</li>';
 
-    const failedList = summary.failedTests
-        .map(test => `
-            <li style="color:red;">
-                <b>${test.name}</b><br>
-                ${test.error}
-            </li>
-        `)
-        .join('');
+    let transporter =
+        nodemailer.createTransport({
+
+            service: 'gmail',
+
+            auth: {
+
+                user:
+                    process.env.EMAIL_USER,
+
+                pass:
+                    process.env.EMAIL_PASS
+            }
+        });
 
     await transporter.sendMail({
 
-        from: process.env.EMAIL_USER,
+        from:
+            process.env.EMAIL_USER,
 
-        to: 'yashvi.khimani@ecosmob.com',
+        to:
+            'yashvi.khimani@ecosmob.com',
 
-        subject: 'Kaleyra Automation Execution Report',
+        subject:
+            `${reportName} - Automation Execution Report`,
 
         html: `
 
-        <h2>Kaleyra Automation Execution Summary</h2>
+        <h2 style="
+            color:white;
+            background:${summary.failed > 0 ? 'red' : 'green'};
+            padding:10px;
+        ">
+            Execution Status :
+            ${overallStatus}
+        </h2>
 
-        <table border="1" cellpadding="10">
+        <h3>Module Executed</h3>
+
+        <p>
+            ${reportName}
+        </p>
+
+        <p>
+            <b>Execution Time:</b>
+            ${executionTime}
+        </p>
+
+        <p>
+            <b>Browser:</b>
+            Chromium
+        </p>
+
+        <h3>Execution Summary</h3>
+
+        <table border="1" cellpadding="10" cellspacing="0">
 
             <tr>
                 <th>Total</th>
@@ -169,9 +254,11 @@ async function sendMail() {
 
             <tr>
                 <td>${summary.total}</td>
+
                 <td style="color:green;">
                     ${summary.passed}
                 </td>
+
                 <td style="color:red;">
                     ${summary.failed}
                 </td>
@@ -181,23 +268,31 @@ async function sendMail() {
 
         <br>
 
-        <h3>Passed Tests</h3>
+        <h3>Passed Test Cases</h3>
 
         <ul>
             ${passedList}
         </ul>
 
-        <h3>Failed Tests</h3>
+        <h3>Failed Test Cases</h3>
 
         <ul>
-            ${failedList || '<li>No Failed Tests</li>'}
+            ${failedList}
         </ul>
 
         <br>
 
         <p>
-        Attached:
-        Complete Playwright HTML Report ZIP
+            Attached:
+            Complete Playwright HTML Report ZIP
+        </p>
+
+        <br>
+
+        <p>
+            Regards,
+            <br>
+            Kaleyra CI/CD Pipeline
         </p>
 
         `,
@@ -210,7 +305,18 @@ async function sendMail() {
         ]
     });
 
-    console.log('Email sent successfully');
+    console.log(
+        'Email sent successfully'
+    );
+
+    if (fs.existsSync(zipFile)) {
+
+        fs.unlinkSync(zipFile);
+
+        console.log(
+            'Temporary ZIP deleted'
+        );
+    }
 }
 
 sendMail();
