@@ -295,11 +295,14 @@ test('Search Created Extension', async () => {
             "//div[@class='collapsible-header']"
         );
 
-    await expect(
-        searchAccordion
-    ).toBeVisible({
-        timeout: 30000
-    });
+   await expect(
+    tenantPage.getByRole('cell', {
+        name: extensionNumber,
+        exact: true
+    })
+).toBeVisible({
+    timeout: 15000
+});
 
     await searchAccordion.scrollIntoViewIfNeeded();
 
