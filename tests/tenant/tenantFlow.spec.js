@@ -274,23 +274,46 @@ test('Search Created Extension', async () => {
     );
 
     // Open Search Section
+
     await tenantPage
         .getByText('Search')
         .nth(1)
         .click();
 
-    await tenantPage.waitForTimeout(1000);
+    // Wait for Extension Number field to appear
+
+    await expect(
+        tenantPage.getByRole('textbox', {
+            name: 'Extension Number'
+        })
+    ).toBeVisible({
+        timeout: 15000
+    });
 
     // Fill Extension Number
+
+    await tenantPage
+        .getByRole('textbox', {
+            name: 'Extension Number'
+        })
+        .clear();
+
     await tenantPage
         .getByRole('textbox', {
             name: 'Extension Number'
         })
         .fill(extensionNumber);
 
+    console.log(
+        `Entered Extension Number: ${extensionNumber}`
+    );
+
+    // Wait before search
+
     await tenantPage.waitForTimeout(1000);
 
     // Click Search Button
+
     await tenantPage
         .getByRole('button', {
             name: 'Search'
@@ -298,9 +321,14 @@ test('Search Created Extension', async () => {
         .last()
         .click();
 
+    // Wait for results
+
+    await tenantPage.waitForLoadState('networkidle');
+
     await tenantPage.waitForTimeout(3000);
 
     // Verify Extension Found
+
     await expect(
         tenantPage.getByText(extensionNumber)
     ).toBeVisible({
