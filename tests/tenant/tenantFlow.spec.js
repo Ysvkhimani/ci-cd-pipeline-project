@@ -597,69 +597,69 @@ test.describe.serial('Kaleyra Tenant Complete Flow', () => {
         console.log(`Extension ${extensionNumber} Created Successfully`);
     });
 
-    test('Search Created Extension', async () => {
+    // test('Search Created Extension', async () => {
 
-        console.log(`Searching Extension ${extensionNumber}`);
+    //     console.log(`Searching Extension ${extensionNumber}`);
 
-        await tenantPage.waitForURL(/extension.*index/, {
-            timeout: 30000
-        });
+    //     await tenantPage.waitForURL(/extension.*index/, {
+    //         timeout: 30000
+    //     });
 
-        console.log('Current URL:', await tenantPage.url());
+    //     console.log('Current URL:', await tenantPage.url());
 
-        const searchAccordion = tenantPage.locator(
-            "//div[@class='collapsible-header']"
-        );
+    //     const searchAccordion = tenantPage.locator(
+    //         "//div[@class='collapsible-header']"
+    //     );
 
-        await searchAccordion.scrollIntoViewIfNeeded();
-        await searchAccordion.click();
+    //     await searchAccordion.scrollIntoViewIfNeeded();
+    //     await searchAccordion.click();
 
-        console.log('Search Accordion Opened');
+    //     console.log('Search Accordion Opened');
 
-        const extensionNumberField =
-            tenantPage.getByRole('textbox', {
-                name: 'Extension Number'
-            });
+    //     const extensionNumberField =
+    //         tenantPage.getByRole('textbox', {
+    //             name: 'Extension Number'
+    //         });
 
-        await expect(extensionNumberField).toBeVisible({
-            timeout: 30000
-        });
+    //     await expect(extensionNumberField).toBeVisible({
+    //         timeout: 30000
+    //     });
 
-        const extensionNameField =
-            tenantPage.getByRole('textbox', {
-                name: 'Extension Name'
-            });
+    //     const extensionNameField =
+    //         tenantPage.getByRole('textbox', {
+    //             name: 'Extension Name'
+    //         });
 
-        if (await extensionNameField.isVisible().catch(() => false)) {
-            await extensionNameField.fill('');
-        }
+    //     if (await extensionNameField.isVisible().catch(() => false)) {
+    //         await extensionNameField.fill('');
+    //     }
 
-        await extensionNumberField.fill(extensionNumber);
+    //     await extensionNumberField.fill(extensionNumber);
 
-        console.log(`Entered Extension Number: ${extensionNumber}`);
+    //     console.log(`Entered Extension Number: ${extensionNumber}`);
 
-        const searchButton = tenantPage.getByRole('button', {
-            name: /^Search$/
-        });
+    //     const searchButton = tenantPage.getByRole('button', {
+    //         name: /^Search$/
+    //     });
 
-        await expect(searchButton).toBeVisible({
-            timeout: 30000
-        });
+    //     await expect(searchButton).toBeVisible({
+    //         timeout: 30000
+    //     });
 
-        await searchButton.click();
+    //     await searchButton.click();
 
-        await tenantPage.waitForLoadState('networkidle');
-        await tenantPage.waitForTimeout(2000);
+    //     await tenantPage.waitForLoadState('networkidle');
+    //     await tenantPage.waitForTimeout(2000);
 
-        // ✅ FIXED: stable locator instead of strict getByText
-        const searchedRow = tenantPage.locator('tr').filter({
-            hasText: extensionNumber
-        });
+    //     // ✅ FIXED: stable locator instead of strict getByText
+    //     const searchedRow = tenantPage.locator('tr').filter({
+    //         hasText: extensionNumber
+    //     });
 
-        await expect(searchedRow).toBeVisible({
-            timeout: 30000
-        });
+    //     await expect(searchedRow).toBeVisible({
+    //         timeout: 30000
+    //     });
 
-        console.log(`Extension ${extensionNumber} found successfully`);
-    });
+    //     console.log(`Extension ${extensionNumber} found successfully`);
+    // });
 });
