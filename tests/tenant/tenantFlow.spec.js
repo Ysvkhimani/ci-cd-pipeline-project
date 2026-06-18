@@ -52,12 +52,30 @@ test.describe.serial('Kaleyra Tenant Complete Flow', () => {
 
         await page.waitForLoadState('networkidle');
 
-const loginIcon = page
-    .getByRole('row', {
-        name: /TENANT096/
-    })
-    .getByTestId('ArrowCircleRightIcon')
-    .first();
+await page.locator("//input[@id='name']")
+    .fill('TENANT096');
+
+await page.locator("//button[@type='submit']")
+    .click();
+
+await page.waitForTimeout(5000);
+
+const loginIcon =
+    page.getByTestId('ArrowCircleRightIcon')
+        .first();
+
+await expect(loginIcon)
+    .toBeVisible({
+        timeout: 30000
+    });
+
+const popupPromise =
+    page.waitForEvent('popup');
+
+await loginIcon.click();
+
+tenantPage =
+    await popupPromise;
 
 await expect(loginIcon).toBeVisible({
     timeout: 30000

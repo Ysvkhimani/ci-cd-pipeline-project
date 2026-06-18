@@ -96,15 +96,25 @@ const tenantPage =
         })
         .click();
 
-    await tenantPage
-        .getByText('perm_identity Telephony')
-        .click();
+await tenantPage
+    .getByText('perm_identity Telephony')
+    .click();
 
-    await tenantPage
-        .getByRole('link', {
-            name: 'Extensions'
-        })
-        .click();
+await tenantPage.waitForTimeout(3000);
+
+await expect(
+    tenantPage.locator(
+        "//a[contains(text(),'Extensions')]"
+    )
+).toBeVisible({
+    timeout: 30000
+});
+
+await tenantPage
+    .locator(
+        "//a[contains(text(),'Extensions')]"
+    )
+    .click();
 
     await tenantPage.waitForLoadState(
         'networkidle'
