@@ -37,7 +37,7 @@
       [
         "html",
         {
-          "outputFolder": "reports/tenantFlow_6-1-2026_14-13-2",
+          "outputFolder": "reports/extensionExport_6-18-2026_10-3-2",
           "open": "never"
         }
       ],
@@ -62,502 +62,84 @@
   },
   "suites": [
     {
-      "title": "tenant/tenantFlow.spec.js",
-      "file": "tenant/tenantFlow.spec.js",
+      "title": "tenant/extensionExport.spec.js",
+      "file": "tenant/extensionExport.spec.js",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Kaleyra Tenant Complete Flow",
-          "file": "tenant/tenantFlow.spec.js",
-          "line": 17,
-          "column": 15,
-          "specs": [
+          "title": "Export Extension And Validate CSV Data",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "Admin Login",
-              "ok": true,
-              "tags": [],
-              "tests": [
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
                 {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19698,
+                  "errors": [],
+                  "stdout": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6075,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Starting Tenant Flow\n"
-                        },
-                        {
-                          "text": "Admin Login Successful\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:03.841Z",
-                      "annotations": [],
-                      "attachments": []
+                      "text": "Login Successful\n"
+                    },
+                    {
+                      "text": "Tenant096 Found\n"
+                    },
+                    {
+                      "text": "Extensions Opened\n"
+                    },
+                    {
+                      "text": "Extension Selected: Active\n"
+                    },
+                    {
+                      "text": "Downloaded File: Extension-1781757204.csv\n"
+                    },
+                    {
+                      "text": "Opened File: /home/yashvi/Documents/ci-cd-pipeline-project/downloads/Extension-1781757204.csv\n"
+                    },
+                    {
+                      "text": "File Size: 12083\n"
+                    },
+                    {
+                      "text": "CSV File Read Successfully\n"
+                    },
+                    {
+                      "text": "Extension Active found in CSV export\n"
+                    },
+                    {
+                      "text": "Export Validation Completed Successfully\n"
                     }
                   ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-0ef796edf22128545716",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 35,
-              "column": 9
-            },
-            {
-              "title": "Open Tenant Module",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-06-18T04:33:04.029Z",
                   "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2274,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Tenant Module Opened\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:11.375Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
+                  "attachments": []
                 }
               ],
-              "id": "3393012a67d98d20b6dc-4ec7225d13ff534a71f5",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 64,
-              "column": 9
-            },
-            {
-              "title": "Open Tenant Login",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3714,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Tenant Login Opened\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:13.690Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-ae913d919b10ced6f5a9",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 77,
-              "column": 9
-            },
-            {
-              "title": "Open Telephony Module",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 641,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Telephony Module Opened\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:17.443Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-9d32356010f8f1fea195",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 96,
-              "column": 9
-            },
-            {
-              "title": "Open Extensions Module",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 945,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Extensions Page Opened\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:18.132Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-e672853746ffbab608a0",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 111,
-              "column": 9
-            },
-            {
-              "title": "Open Add Extension Page",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 1044,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Add Extension Page Opened\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:19.122Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-838dec9e60082090a997",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 122,
-              "column": 9
-            },
-            {
-              "title": "Fill Basic Extension Details",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 514,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Basic Details Filled\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:20.192Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-35b0b7b57c6f8cd01ff4",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 133,
-              "column": 9
-            },
-            {
-              "title": "Select Group Language Timezone",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 529,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Group Language Timezone Selected\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:20.761Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-e8f718a5add6f248bba6",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 156,
-              "column": 9
-            },
-            {
-              "title": "Fill Call Settings",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 563,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Call Settings Filled\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:21.360Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-3550ecc3ed0ea3e5a6e2",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 202,
-              "column": 9
-            },
-            {
-              "title": "Create Extension",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 78,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Extension Created\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:21.950Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-33f61e62196c99c34576",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 237,
-              "column": 9
-            },
-            {
-              "title": "Verify Extension Creation",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6806,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Extension 683783 Created Successfully\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:22.057Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-e24a747dcd6214d05730",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 252,
-              "column": 9
-            },
-            {
-              "title": "Search Created Extension",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3841,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Searching Extension 683783\n"
-                        },
-                        {
-                          "text": "Current URL: https://ucpbx4qa.ecosmob.net/index.php?r=extension%2Fextension%2Findex\n"
-                        },
-                        {
-                          "text": "Search Accordion Opened\n"
-                        },
-                        {
-                          "text": "Entered Extension Number: 683783\n"
-                        },
-                        {
-                          "text": "Extension 683783 found successfully\n"
-                        },
-                        {
-                          "text": "Tenant Flow Completed\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-01T08:43:28.890Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "3393012a67d98d20b6dc-4aa156e98d2f34ec59c5",
-              "file": "tenant/tenantFlow.spec.js",
-              "line": 345,
-              "column": 5
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "cb166b02ad298b766d8f-de3dfb1c48f5598552e7",
+          "file": "tenant/extensionExport.spec.js",
+          "line": 6,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-01T08:43:02.746Z",
-    "duration": 30404.417999999998,
-    "expected": 12,
+    "startTime": "2026-06-18T04:33:02.892Z",
+    "duration": 22031.578,
+    "expected": 1,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
