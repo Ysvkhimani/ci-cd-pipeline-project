@@ -122,27 +122,27 @@ await tenantPage
 
     console.log('Extensions Opened');
 
-    // // ====================================
-    // // CAPTURE FIRST EXTENSION NUMBER
-    // // ====================================
+    // ====================================
+    // CAPTURE FIRST EXTENSION NUMBER
+    // ====================================
 
-    // const extensionNumber =
-    //     (
-    //         await tenantPage
-    //             .locator('table tbody tr')
-    //             .first()
-    //             .locator('td')
-    //             .nth(1)
-    //             .textContent()
-    //     )?.trim();
+    const extensionNumber =
+        (
+            await tenantPage
+                .locator('table tbody tr')
+                .first()
+                .locator('td')
+                .nth(1)
+                .textContent()
+        )?.trim();
 
-    // console.log(
-    //     `Extension Selected: ${extensionNumber}`
-    // );
+    console.log(
+        `Extension Selected: ${extensionNumber}`
+    );
 
-    // expect(extensionNumber)
-    //     .not
-    //     .toBeNull();
+    expect(extensionNumber)
+        .not
+        .toBeNull();
 
     // ====================================
     // EXPORT CSV
