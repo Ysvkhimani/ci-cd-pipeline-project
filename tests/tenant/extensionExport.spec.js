@@ -108,29 +108,22 @@ await tenantPage.waitForTimeout(5000);
 
 // Expand Telephony menu if needed
 
-const extensionsMenu = tenantPage.locator(
-    "//a[contains(text(),'Extensions')]"
-);
+// Expand Telephony menu if needed
+await tenantPage.waitForTimeout(5000);
 
-await extensionsMenu.waitFor({
-    state: 'visible',
+const extensionsMenu = tenantPage.getByRole('link', {
+    name: 'Extensions'
+});
+
+await expect(extensionsMenu).toBeVisible({
     timeout: 60000
 });
 
-await extensionsMenu.scrollIntoViewIfNeeded();
-
-await extensionsMenu.click({
-    force: true
-});
+await extensionsMenu.click();
 
 await tenantPage.waitForLoadState('networkidle');
 
 console.log('Extensions Opened');
-    await tenantPage.waitForLoadState(
-        'networkidle'
-    );
-
-    console.log('Extensions Opened');
 
     // ====================================
     // CAPTURE FIRST EXTENSION NUMBER
