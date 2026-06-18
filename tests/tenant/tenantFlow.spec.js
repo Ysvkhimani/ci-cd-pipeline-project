@@ -113,25 +113,41 @@ test.describe.serial('Kaleyra Tenant Complete Flow', () => {
     console.log('Tenant Login Opened');
 });
 
-    test('Open Telephony Module', async () => {
+ test('Open Telephony Module', async () => {
 
-        await tenantPage.getByRole('link', {
-            name: 'radio_button_unchecked'
-        }).click();
+    await tenantPage.getByRole('link', {
+        name: 'radio_button_unchecked'
+    }).click();
 
-        await tenantPage.getByText('perm_identity Telephony').click();
+    await tenantPage.waitForTimeout(3000);
 
-        console.log('Telephony Module Opened');
-    });
+    await tenantPage
+        .getByText('perm_identity Telephony')
+        .click();
 
-    test('Open Extensions Module', async () => {
+    console.log('Telephony clicked');
 
-        await tenantPage.getByRole('link', {
+    await tenantPage.waitForTimeout(5000);
+
+    const extensionsMenu =
+        tenantPage.getByRole('link', {
             name: 'Extensions'
-        }).click();
+        });
 
-        console.log('Extensions Page Opened');
+    await expect(
+        extensionsMenu
+    ).toBeVisible({
+        timeout: 60000
     });
+
+    await extensionsMenu.click();
+
+    await tenantPage.waitForLoadState(
+        'networkidle'
+    );
+
+    console.log('Extensions Opened');
+});
 
     test('Open Add Extension Page', async () => {
 
