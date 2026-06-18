@@ -50,56 +50,68 @@ test.describe.serial('Kaleyra Tenant Complete Flow', () => {
 
     test('Open Tenant Login', async () => {
 
-        await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('networkidle');
 
-await page.locator("//input[@id='name']")
-    .fill('TENANT096');
+    // Open Search Panel
 
-await page.locator("//button[@type='submit']")
-    .click();
+    await page.locator(
+        "//span[contains(@class,'MuiAccordionSummary-content')]"
+    ).click();
 
-await page.waitForTimeout(5000);
+    // Wait for Search Field
 
-const loginIcon =
-    page.getByTestId('ArrowCircleRightIcon')
-        .first();
-
-await expect(loginIcon)
-    .toBeVisible({
+    await expect(
+        page.locator("//input[@id='name']")
+    ).toBeVisible({
         timeout: 30000
     });
 
-const popupPromise =
-    page.waitForEvent('popup');
+    // Search Tenant096
 
-await loginIcon.click();
+    await page.locator("//input[@id='name']")
+        .fill('TENANT096');
 
-tenantPage =
-    await popupPromise;
+    await page.locator("//button[@type='submit']")
+        .click();
 
-await expect(loginIcon).toBeVisible({
-    timeout: 30000
+    await page.waitForLoadState('networkidle');
+
+    await page.waitForTimeout(3000);
+
+    console.log('Tenant096 Found');
+
+    // Locate Login Icon
+
+    const loginIcon =
+        page.getByTestId('ArrowCircleRightIcon')
+            .first();
+
+    await expect(loginIcon)
+        .toBeVisible({
+            timeout: 30000
+        });
+
+    // Open Popup
+
+    const [tenantPopup] =
+        await Promise.all([
+
+            page.waitForEvent('popup', {
+                timeout: 60000
+            }),
+
+            loginIcon.click()
+
+        ]);
+
+    tenantPage = tenantPopup;
+
+    await tenantPage.waitForLoadState(
+        'networkidle'
+    );
+
+    console.log('Tenant Login Opened');
 });
-
-const [tenantPopup] = await Promise.all([
-    page.waitForEvent('popup', {
-        timeout: 60000
-    }),
-    loginIcon.click()
-]);
-
-tenantPage = tenantPopup;
-
-await tenantPage.waitForLoadState('networkidle');
-
-console.log('Tenant Login Opened');
-
-        tenantPage = await popupPromise;
-
-        await tenantPage.waitForLoadState();
-
-        console.log('Tenant Login Opened');
-    });
 
     test('Open Telephony Module', async () => {
 

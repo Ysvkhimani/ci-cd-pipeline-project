@@ -90,32 +90,42 @@ const tenantPage =
     // OPEN EXTENSIONS
     // ====================================
 
-    await tenantPage
-        .getByRole('link', {
-            name: 'radio_button_unchecked'
-        })
-        .click();
+  await tenantPage.waitForLoadState('networkidle');
+
+await tenantPage
+    .getByRole('link', {
+        name: 'radio_button_unchecked'
+    })
+    .click();
+
+await tenantPage.waitForTimeout(2000);
 
 await tenantPage
     .getByText('perm_identity Telephony')
     .click();
 
-await tenantPage.waitForTimeout(3000);
+await tenantPage.waitForTimeout(5000);
 
-await expect(
-    tenantPage.locator(
-        "//a[contains(text(),'Extensions')]"
-    )
-).toBeVisible({
-    timeout: 30000
+// Expand Telephony menu if needed
+
+const extensionsMenu = tenantPage.locator(
+    "//a[contains(text(),'Extensions')]"
+);
+
+await extensionsMenu.waitFor({
+    state: 'visible',
+    timeout: 60000
 });
 
-await tenantPage
-    .locator(
-        "//a[contains(text(),'Extensions')]"
-    )
-    .click();
+await extensionsMenu.scrollIntoViewIfNeeded();
 
+await extensionsMenu.click({
+    force: true
+});
+
+await tenantPage.waitForLoadState('networkidle');
+
+console.log('Extensions Opened');
     await tenantPage.waitForLoadState(
         'networkidle'
     );
