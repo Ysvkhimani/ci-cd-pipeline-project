@@ -37,7 +37,7 @@
       [
         "html",
         {
-          "outputFolder": "reports/extensionExport_6-18-2026_10-3-2",
+          "outputFolder": "reports/extensionExport_6-19-2026_10-10-11",
           "open": "never"
         }
       ],
@@ -83,7 +83,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 19698,
+                  "duration": 94352,
                   "errors": [],
                   "stdout": [
                     {
@@ -99,13 +99,13 @@
                       "text": "Extension Selected: Active\n"
                     },
                     {
-                      "text": "Downloaded File: Extension-1781757204.csv\n"
+                      "text": "Downloaded File: Extension-1781844109.csv\n"
                     },
                     {
-                      "text": "Opened File: /home/yashvi/Documents/ci-cd-pipeline-project/downloads/Extension-1781757204.csv\n"
+                      "text": "Opened File: /home/yashvi/Documents/ci-cd-pipeline-project/downloads/Extension-1781844109.csv\n"
                     },
                     {
-                      "text": "File Size: 12083\n"
+                      "text": "File Size: 13280\n"
                     },
                     {
                       "text": "CSV File Read Successfully\n"
@@ -119,7 +119,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-18T04:33:04.029Z",
+                  "startTime": "2026-06-19T04:40:13.353Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -137,8 +137,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-18T04:33:02.892Z",
-    "duration": 22031.578,
+    "startTime": "2026-06-19T04:40:11.466Z",
+    "duration": 99263.791,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
